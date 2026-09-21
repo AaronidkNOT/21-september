@@ -17,11 +17,11 @@ export const content = {
     { name: 'Cielo de estrellas', hint: 'Nuestro próximo capítulo', sky: 'final', background: './biome-final.png' }
   ],
   gifts: [
-    { icon: 'clock', title: 'Nuestra historia', tag: 'COFRE 01', description: 'Volvé a caminar por los momentos que nos trajeron hasta acá.' },
-    { icon: '✦', title: 'Recuerdos', tag: 'COFRE 02', description: 'Pequeños instantes que se volvieron enormes.' },
-    { icon: '✉', title: 'Una carta', tag: 'COFRE 03', description: 'Hay cosas que merecen quedar escritas.' },
-    { icon: '♫', title: 'Nuestra música', tag: 'COFRE 04', description: 'Melodías que suenan a nosotros.' },
-    { icon: '♥', title: 'El último regalo', tag: 'COFRE 05', description: 'Una sorpresa para cuando hayamos abierto todo.' }
+    { icon: 'clock', title: 'Nuestra historia', tag: 'COFRE 01', description: 'Volvé a caminar por los momentos que nos trajeron hasta acá mi amor.' },
+    { icon: '✦', title: 'Recuerdos', tag: 'COFRE 02', description: 'Recuerditos :D.' },
+    { icon: '✉', title: 'Una carta', tag: 'COFRE 03', description: 'Una carta para vos mi amor.' },
+    { icon: '♫', title: 'Nuestra música', tag: 'COFRE 04', description: 'Temones' },
+    { icon: '♥', title: 'El último regalo', tag: 'COFRE 05', description: 'Una sorpresa para cuando abras abierto todo.' }
   ],
   timeline: [
     { date: 'El primer hola', title: 'Apareciste en mi mundo', text: 'Ese día que te conocí nunca pensé que algún día iba a hablarte realmente.' },
@@ -42,7 +42,7 @@ export const content = {
   // This supplied song starts after the visitor taps Comenzar aventura.
   songs: [
     { title: 'Mice on Venus', artist: 'Un tema que me recuerda a los días que pasábamos juntos', url: './music/mice-on-venus.mp3' },
-    { title: 'Creeper vs Zombie', artist: 'Una melodía hecha por los mismos ángeles', url: './music/creeper-vs-zombie.mp3' },
+    { title: 'Creeper vs Zombie', artist: 'Un temon hecha por los mismos ángeles', url: './music/creeper-vs-zombie.mp3' },
     { title: 'Hay que ser minero', artist: 'TEMONNNNN', url: './music/hay-que-ser-minero.mp3' }
   ],
   finale: { title: 'Mi mundo ideal es con vos', message: 'Gracias por cada día, cada risa y cada salida. Feliz día de la primavera, mi flor amarilla. Ojalá que sigamos construyendo nuestro mundo juntos, bloque por bloque.', signature: 'Con todo mi amor, Aaron' },
