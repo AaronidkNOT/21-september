@@ -46,5 +46,5 @@ export const content = {
     { title: 'Hay que ser minero', artist: 'TEMONNNNN', url: './music/hay-que-ser-minero.mp3' }
   ],
   finale: { title: 'Mi mundo ideal es con vos', message: 'Gracias por cada día, cada risa y cada salida. Feliz día de la primavera, mi flor amarilla. Ojalá que sigamos construyendo nuestro mundo juntos, bloque por bloque.', signature: 'Con todo mi amor, Aaron' },
-  secrets: { flower: 'Encontraste una flor secreta 🌸. Pedí un deseo para nuestra próxima aventura.', moon: 'La luna también sabe que esta historia recién empieza ✨.' }
+  secrets: { flower: 'Encontraste una flor secreta 🌸. Pedí un deseo para nuestra proxima vez q nos veamos', moon: 'Te amo muchisimo amor.' }
 };
