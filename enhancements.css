@@ -1,0 +1,127 @@
+/* The official chest atlas and item-frame texture are intentionally kept pixel sharp. */
+.scene{overflow:hidden;background:#192f3d url('./landscape.png') center 49% / cover no-repeat!important}
+.intro{background:#152b36 url('./landscape.png') center / cover no-repeat!important}
+.intro:before{display:none}
+@media(max-width:680px){.scene{background-position:59% center!important}}
+.underworld{position:relative;background:#845e42 url('./dirt-block.png') left top / 64px 64px repeat;background-blend-mode:multiply;image-rendering:pixelated}
+.underworld::before{content:'';position:absolute;inset:192px 0 0;background-image:url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png');background-size:64px 64px;background-position:6% 12%,22% 38%,43% 19%,64% 52%,86% 8%,12% 78%,33% 66%,56% 91%,79% 72%,95% 43%;background-repeat:no-repeat;pointer-events:none}
+.underworld::after{content:'';position:absolute;inset:192px 0 0;background:#102934a8;pointer-events:none}
+.underworld>*{position:relative;z-index:1}
+.ground-cap{height:64px;border:0;box-shadow:none;background:url('./grass-block.png') left top / 64px 64px repeat-x;image-rendering:pixelated}
+.intro-ground{height:64px;border:0;background:url('./grass-block.png') left top / 64px 64px repeat-x;image-rendering:pixelated}
+.terrain-rows{height:128px;background:#845e42 url('./dirt-block.png') left top / 64px 64px repeat;background-blend-mode:multiply;image-rendering:pixelated;box-shadow:inset 0 -12px 18px #102a34a8}
+.terrain-rows::before{content:'';position:absolute;inset:0;background-image:url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png'),url('./stone-ore.png'),url('./stone-block.png');background-size:64px 64px;background-position:7% 0,28% 0,53% 0,81% 0,18% 100%,40% 100%,69% 100%,91% 100%;background-repeat:no-repeat;pointer-events:none}
+
+/* One centered grid owns every layer, so stone starts only after each dirt column. */
+.underworld{--terrain-tile:64px;padding-top:calc(var(--terrain-tile) * 3);background:#48504b;overflow:hidden}
+.underworld::before,.underworld::after{display:none}
+.underworld>.terrain-canvas{position:absolute;z-index:0;inset:0;width:100%;height:100%;display:block;pointer-events:none;image-rendering:pixelated}
+.underworld>.quest-area,.underworld>footer{position:relative;z-index:1}
+@media(max-width:680px){.underworld{--terrain-tile:48px}.intro-ground{height:48px;background-size:48px 48px}.intro .yellow-flower-field img{bottom:calc(46px + var(--lift))}}
+
+.chest.mc-chest{--pixel:clamp(14px,1.55vw,20px);position:relative;width:calc(19 * var(--pixel));height:calc(18 * var(--pixel));perspective:650px;filter:drop-shadow(0 22px 22px #0d2029ad);animation:chest-float 4s ease-in-out infinite;overflow:visible}
+.mc-chest span{position:absolute;display:block;pointer-events:none}
+.mc-glow{inset:4% 5% 12%;border-radius:50%;background:radial-gradient(circle,#ffe7a96b 0%,#ffe7a91d 49%,transparent 72%);animation:pulse 3s infinite}
+.mc-shadow{left:13%;bottom:5%;width:75%;height:7%;border-radius:50%;background:#071822c7;filter:blur(12px)}
+.mc-body,.mc-lid,.mc-body-side,.mc-lid-side,.mc-lock{background-image:url('./chest-texture.png');background-repeat:no-repeat;image-rendering:pixelated}
+.mc-body{z-index:3;left:calc(2 * var(--pixel));top:calc(6 * var(--pixel));width:calc(14 * var(--pixel));height:calc(10 * var(--pixel));background-size:457.142857% 640%;background-position:28% 61.111%;box-shadow:calc(.35 * var(--pixel)) calc(.35 * var(--pixel)) 0 #10242b8c}
+.mc-body-side{z-index:2;left:calc(15.6 * var(--pixel));top:calc(5.5 * var(--pixel));width:calc(2.3 * var(--pixel));height:calc(10 * var(--pixel));background-size:2800% 640%;background-position:0 61.111%;transform:skewY(-17deg);filter:brightness(.65)}
+.mc-interior{z-index:4;left:calc(2.3 * var(--pixel));top:calc(5.7 * var(--pixel));width:calc(13.4 * var(--pixel));height:calc(1.25 * var(--pixel));background:#21190d;box-shadow:inset 0 0 18px #ffd262a6;opacity:0;transition:opacity .18s}
+.mc-lid{z-index:5;left:calc(2 * var(--pixel));top:calc(1 * var(--pixel));width:calc(14 * var(--pixel));height:calc(5 * var(--pixel));background-size:457.142857% 1280%;background-position:28% 23.73%;transform-origin:50% 100%;transform-style:preserve-3d;transition:transform .46s cubic-bezier(.17,.7,.22,1);box-shadow:calc(.3 * var(--pixel)) calc(.2 * var(--pixel)) 0 #10242b8c}
+.mc-lid-side{z-index:4;left:calc(15.6 * var(--pixel));top:calc(.7 * var(--pixel));width:calc(2.3 * var(--pixel));height:calc(5 * var(--pixel));background-size:2800% 1280%;background-position:0 23.73%;transform:skewY(-16deg);filter:brightness(.67);transition:transform .45s,opacity .45s}
+.mc-lock{z-index:6;left:50%;top:calc(3.8 * var(--pixel));transform:translateX(-50%);width:calc(3.2 * var(--pixel));height:calc(3.2 * var(--pixel));background-size:1066.67% 1066.67%;background-position:0 0;filter:drop-shadow(2px 2px 0 #211b1a99)}
+.mc-prompt{left:0;bottom:0;width:100%;text-align:center;color:#ffedc4;font:800 .73rem 'Space Grotesk',sans-serif;letter-spacing:.17em;text-shadow:0 3px 7px #101b25;animation:blink 2.6s infinite}
+.mc-chest:hover:not(.locked) .mc-lid{transform:rotateX(-9deg)}
+.mc-chest.opening .mc-lid,.mc-chest.opening:hover .mc-lid{transform:rotateX(-75deg) translateY(calc(-.6 * var(--pixel)))}
+.mc-chest.opening .mc-lid-side{transform:skewY(-16deg) translateY(calc(-1.4 * var(--pixel)));opacity:.4}
+.mc-chest.opening .mc-interior{opacity:1}
+.mc-chest.closing .mc-lid{animation:mc-lid-close .5s both}
+.mc-chest.closing .mc-interior{animation:mc-inside-close .5s steps(1,end) both}
+.mc-chest.locked{filter:grayscale(.85) brightness(.8) drop-shadow(0 22px 22px #0d2029ad)}
+@keyframes mc-lid-close{from{transform:rotateX(-75deg) translateY(calc(-.6 * var(--pixel)))}to{transform:rotateX(0)}}
+@keyframes mc-inside-close{from{opacity:1}to{opacity:0}}
+@media(max-width:680px){.chest.mc-chest{--pixel:14px;width:calc(19 * var(--pixel));height:calc(18 * var(--pixel));margin-top:6px}}
+@media(max-width:390px){.chest.mc-chest{--pixel:12px}}
+
+.memory-card{background:#2b4548;color:#f2e9d8;border:2px solid #9bb0a5;padding:10px;box-shadow:6px 6px 0 #10252d}
+.memory-frame{aspect-ratio:1;background:url('./item-frame.png') center/100% 100% no-repeat;image-rendering:pixelated;padding:15%;box-shadow:inset 0 0 0 3px #2c2422,5px 5px 0 #10252d}
+.memory-photo{width:100%;height:100%;aspect-ratio:1;border:3px solid #2d2521;box-shadow:0 0 0 3px #ab7d4f;image-rendering:pixelated}
+.memory-photo.spring{background:radial-gradient(circle at 50% 38%,#fff0a5 0 12%,transparent 13%),linear-gradient(135deg,#628e57,#e1c96e 54%,#f3d28a)}
+.memory-photo[style]{background-color:#16232a;background-size:contain;background-position:center;background-repeat:no-repeat;image-rendering:auto}
+.memory-photo small{bottom:5px;left:5px;font-size:.62rem}
+.memory-caption{padding:17px 4px 5px}
+.memory-caption p{color:#cddbd2}
+@media(max-width:680px){.memory-frame{max-width:300px;margin:auto}.memory-photo{min-height:0}}
+
+.finale{min-height:530px;background:radial-gradient(circle at 50% 18%,#56507773,transparent 50%),linear-gradient(#172942,#1b3345)}
+.fireworks-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;image-rendering:pixelated;pointer-events:none}
+.finale>:not(canvas){position:relative;z-index:1}
+.finale p{padding:6px 10px;background:#152e3d8c;box-shadow:0 0 24px 16px #152e3d70}
+@media(max-width:680px){.finale{min-height:490px}}
+@media(prefers-reduced-motion:reduce){.mc-chest.opening .mc-lid{transform:rotateX(-75deg)}.mc-chest.closing .mc-lid{animation:none}}
+
+/* Front view: the actual chest atlas stays square, and its lid pivots at the seam. */
+.chest.mc-chest{width:calc(18 * var(--pixel));perspective:900px}
+.mc-body{box-shadow:0 calc(.35 * var(--pixel)) 0 #10242b8c}
+.mc-interior{left:calc(2 * var(--pixel));top:calc(1.9 * var(--pixel));width:calc(14 * var(--pixel));height:calc(4.5 * var(--pixel));background:#15110d;box-shadow:inset calc(.55 * var(--pixel)) 0 #352516,inset calc(-.55 * var(--pixel)) 0 #352516,inset 0 calc(-.5 * var(--pixel)) #0a0908;transition:opacity .15s}
+.mc-lid-assembly .mc-lock{left:50%;top:calc(3.15 * var(--pixel));width:calc(2 * var(--pixel));height:calc(5 * var(--pixel));background-image:linear-gradient(90deg,#b9bbbc 50%,#e0e0df 50%),linear-gradient(90deg,#85898a 50%,#b5b7b6 50%),linear-gradient(90deg,#777b7c 50%,#9da0a0 50%);background-size:100% 40%,100% 40%,100% 20%;background-position:0 0,0 calc(2 * var(--pixel)),0 calc(4 * var(--pixel));background-repeat:no-repeat;image-rendering:pixelated;box-shadow:calc(.11 * var(--pixel)) calc(.12 * var(--pixel)) 0 #211b1a99;filter:none}
+.mc-lid-assembly{z-index:6;left:calc(2 * var(--pixel));top:calc(1 * var(--pixel));width:calc(14 * var(--pixel));height:calc(5 * var(--pixel));transform-origin:50% 100%;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.66,.22,1)}
+.mc-lid-assembly .mc-lid{left:0;top:0;transform:none!important;transition:none;animation:none!important;box-shadow:none}
+.mc-lid-top{z-index:7;left:0;top:calc(-.65 * var(--pixel));width:100%;height:calc(.7 * var(--pixel));background:#211e19;border-top:calc(.18 * var(--pixel)) solid #5a4024;image-rendering:pixelated}
+.mc-chest:hover:not(.locked) .mc-lid-assembly{transform:rotateX(6deg)}
+.mc-chest.opening .mc-lid-assembly,.mc-chest.opening:hover .mc-lid-assembly{transform:translateY(calc(-3.6 * var(--pixel))) rotateX(42deg)}
+.mc-chest.opening .mc-interior{opacity:1}
+.mc-chest.closing .mc-lid-assembly{animation:mc-assembly-close .5s both}
+@keyframes mc-assembly-close{from{transform:translateY(calc(-3.6 * var(--pixel))) rotateX(42deg)}to{transform:translateY(0) rotateX(0)}}
+@media(prefers-reduced-motion:reduce){.mc-chest.opening .mc-lid-assembly{transform:translateY(calc(-3.6 * var(--pixel))) rotateX(42deg)}.mc-chest.closing .mc-lid-assembly{animation:none}}
+
+/* Spring flowers use the game's dandelion sprite. */
+.yellow-flower-field{position:absolute;inset:0;z-index:1;pointer-events:none}
+.yellow-flower-field img{position:absolute;left:var(--x);bottom:var(--lift);width:var(--size);height:var(--size);object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 4px 2px #132a2aba) drop-shadow(0 0 9px #ffe67981);transform-origin:50% 100%;animation:flower-sway 4s var(--delay) ease-in-out infinite alternate}
+.scene .yellow-flower-field img:nth-child(3n){opacity:.72}
+.intro .yellow-flower-field{z-index:2}
+.intro .yellow-flower-field img{bottom:calc(62px + var(--lift));width:calc(var(--size) * 1.15);height:calc(var(--size) * 1.15)}
+.intro-flower{width:64px;height:75px;margin:17px auto 8px;animation:flower-sway 3.4s ease-in-out infinite alternate}
+.intro-flower img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated;filter:drop-shadow(0 0 18px #ffe2788c)}
+.intro h2{font-size:clamp(2.5rem,6.8vw,5.5rem);line-height:1.04;margin:18px 0 22px}
+.intro h2 em,.intro h2 span{color:#ffe17d}
+.intro-eyebrow,.tiny-label,.eyebrow{color:#ffe0a0}
+.primary-btn{background:#f1c764;border-color:#ffe39a;box-shadow:6px 6px 0 #876a3e}
+.primary-btn:hover{box-shadow:9px 9px 0 #876a3e}
+.quest-head h2 span{color:#f2d36f}
+.quest-card:after{content:'';position:absolute;right:12px;top:10px;width:21px;height:21px;background:url('./dandelion.png') center/contain no-repeat;image-rendering:pixelated;opacity:.75}
+@keyframes flower-sway{from{transform:rotate(-6deg)}to{transform:rotate(6deg)}}
+@media(max-width:680px){.intro h2{font-size:clamp(2.35rem,9.3vw,4.1rem)}.intro-flower{width:50px;height:60px}.yellow-flower-field img{width:min(var(--size),38px);height:min(var(--size),38px)}.intro .yellow-flower-field img:nth-child(3),.intro .yellow-flower-field img:nth-child(4),.scene .yellow-flower-field img:nth-child(3n){display:none}.scene-content{min-height:810px}.chest.mc-chest{margin-top:36px}}
+
+/* Each chapter uses its own landscape, while the first retains the original scene. */
+.scene{background-image:var(--zone-background)!important}
+.music-toggle.music-active{color:#ffe07b;border-color:#ffe07b;box-shadow:0 0 18px #ffe07b55}
+
+/* Keep the world still while an overlay is open; its own content can scroll. */
+html.scroll-locked{overflow:hidden;overscroll-behavior:none}
+html.scroll-locked body{overflow:hidden}
+.intro{overflow:hidden;overscroll-behavior:none}
+@media(max-height:600px){.intro{overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain}}
+.modal-backdrop{overscroll-behavior:none}
+.modal{overscroll-behavior:contain}
+.icon-btn svg{display:block;width:22px;height:22px}
+.player-controls .play-btn svg{display:block;width:20px;height:20px;margin:auto}
+.progress-box .progress-tip{display:block;width:100%;margin-top:12px;padding:8px 6px;border:1px solid #9cb7aa;background:#203941;color:#ffdfa1;text-align:left;font:700 .61rem/1.4 'Space Grotesk',sans-serif;letter-spacing:.05em}
+.progress-box button.progress-tip:hover{background:#35545a;border-color:#ffdfa1}
+
+/* The supplied oak texture turns the five gift cards into little wooden signs. */
+.quest-grid{row-gap:18px;margin-bottom:23px}
+.quest-card,.quest-card:hover,.quest-card.active,.quest-card.quest-locked{background-color:#ad8a55;background-image:linear-gradient(#dec18d30,#dec18d30),url('./oak-sign.png');background-position:center;background-size:cover;image-rendering:pixelated}
+.quest-card{isolation:isolate;min-height:146px;padding:12px 15px;border:5px solid #67482c;color:#33251b;box-shadow:inset 0 0 0 2px #d2ac73,5px 7px 0 #2f241c,9px 12px 0 #10252b;transition:transform .2s,filter .2s,border-color .2s}
+.quest-card:before{content:none}
+.quest-card .quest-icon{margin:8px 0 5px}
+.quest-card .quest-state{padding-top:7px}
+.quest-card:hover,.quest-card.active{border-color:#f6d187;filter:brightness(1.08)}
+.quest-card.collected{border-color:#627946}
+.quest-card.quest-locked{filter:saturate(.53) brightness(.82)}
+.quest-card-number,.quest-card .quest-name,.quest-card .quest-state{color:#33251b;text-shadow:1px 0 #eed6a6,-1px 0 #eed6a6,0 1px #eed6a6,0 -1px #eed6a6}
+.quest-card .quest-state{color:#4c3522}
+.quest-card .quest-icon{color:#5a3926;text-shadow:2px 2px 0 #ddbd82}
+.quest-card .quest-icon svg{display:block;width:36px;height:36px;image-rendering:pixelated;filter:drop-shadow(2px 2px 0 #5b3c2a55)}
+@media(max-width:680px){.quest-grid{row-gap:18px}.quest-card{min-height:135px;padding:10px 12px;border-width:4px}.quest-card .quest-icon{margin:7px 0 4px}.quest-card .quest-icon svg{width:30px;height:30px}}
+@media(max-width:390px){.quest-card{min-height:132px;padding:9px 10px}}
